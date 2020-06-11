@@ -105,7 +105,7 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
     
     
     
-    
+    //Functions to update Locatons
     private func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
        {
 
@@ -118,7 +118,7 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
             print("Error - locationManager: \(error.localizedDescription)")
         }
    
-
+//function to get User Loacation
     func determineCurrentLocation() {
         locationManager = CLLocationManager()
         locationManager.delegate = self
