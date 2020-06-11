@@ -30,6 +30,13 @@
                                     <action selector="findwayaction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pbe-ZA-kek"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7v-lL-r5k">
+                                <rect key="frame" x="331" y="832" width="52" height="30"/>
+                                <state key="normal" title="walking"/>
+                                <connections>
+                                    <action selector="transportBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Gd-y4-261"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -37,6 +44,8 @@
                             <constraint firstAttribute="trailing" secondItem="I0i-Aq-c3f" secondAttribute="trailing" id="SnA-Iv-3nS"/>
                             <constraint firstItem="I0i-Aq-c3f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-24" id="bfb-ra-c2r"/>
                             <constraint firstItem="I0i-Aq-c3f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iQB-9A-Uh7"/>
+                            <constraint firstItem="z7v-lL-r5k" firstAttribute="baseline" secondItem="iLK-Z9-Lmm" secondAttribute="baseline" id="nxs-1u-yGG"/>
+                            <constraint firstItem="z7v-lL-r5k" firstAttribute="leading" secondItem="iLK-Z9-Lmm" secondAttribute="trailing" constant="75" id="qAp-vo-DlG"/>
                             <constraint firstItem="iLK-Z9-Lmm" firstAttribute="top" secondItem="I0i-Aq-c3f" secondAttribute="bottom" constant="8" symbolic="YES" id="uad-UO-Ery"/>
                             <constraint firstItem="iLK-Z9-Lmm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="158" id="upY-7e-Css"/>
                             <constraint firstItem="I0i-Aq-c3f" firstAttribute="centerX" secondItem="iLK-Z9-Lmm" secondAttribute="centerX" id="wWH-zA-ann"/>
@@ -47,6 +56,7 @@
                         <outlet property="findway" destination="iLK-Z9-Lmm" id="N9F-1B-04a"/>
                         <outlet property="longpress" destination="9IZ-Ik-n7b" id="Wut-WB-aVs"/>
                         <outlet property="mapView" destination="I0i-Aq-c3f" id="T1Y-N7-PF4"/>
+                        <outlet property="transportBtn" destination="z7v-lL-r5k" id="jad-p0-9Ta"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

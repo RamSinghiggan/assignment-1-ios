@@ -15,12 +15,13 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
     var locationManager:CLLocationManager!
        var currentLocationStr = "Current location"
     var annotation = MKPointAnnotation()
-   
+   let destinationRequest = MKDirections.Request()
     
     @IBOutlet weak var longpress: UILongPressGestureRecognizer!
     @IBOutlet weak var findway: UIButton!
     @IBOutlet var mapView: MKMapView!
     
+    @IBOutlet weak var transportBtn: UIButton!
     
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -49,13 +50,20 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
     }
     
     
+ //Button for walking.
+    @IBAction func transportBtnAction(_ sender: UIButton) {
+        print("walking")
+
+    }
+    
     //Button action
     @IBAction func findwayaction(_ sender: UIButton) {
         
         print(annotation.coordinate,"Button")
                mapThis(destinationCord: annotation.coordinate)
       
-        mapView.removeOverlays(mapView.overlays)
+//        mapView.removeOverlays(mapView.overlays)
+// destinationRequest.transportType = .automobile
                }
         
         
@@ -71,12 +79,14 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
         let sourceItem = MKMapItem(placemark: soucePlaceMark)
         let destItem = MKMapItem(placemark: destPlaceMark)
         print(destItem,"destiantion placemark")
-        let destinationRequest = MKDirections.Request()
+//        let destinationRequest = MKDirections.Request()
         destinationRequest.source = sourceItem
         destinationRequest.destination = destItem
         destinationRequest.transportType = .automobile
         destinationRequest.requestsAlternateRoutes = true
         
+        
+        //Direction Part
         let directions = MKDirections(request: destinationRequest)
         directions.calculate { (response, error) in
             guard let response = response else {
@@ -86,6 +96,8 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
                 return
             }
             
+            
+       //Route Part
           let route = response.routes[0]
             self.mapView.addOverlay(route.polyline,level: .aboveRoads)
           self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
@@ -94,20 +106,27 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
         self.mapView.delegate = self
         
     }
+    
+    //To show Direction Route
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
           let render = MKPolylineRenderer(overlay: overlay as! MKPolyline)
-          render.strokeColor = .yellow
+          render.strokeColor = .red
           return render
       }
     
+ 
     
     
     
-    
-    
+   
     //Functions to update Locatons
     private func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
        {
+        let location = locations.last!
+                let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        var region = MKCoordinateRegion(center: center, span: MKCoordinateSpan( latitudeDelta: 0.1, longitudeDelta: 0.1))
+                region.center = mapView.userLocation.coordinate
+                mapView.setRegion(region, animated: true)
 
          print(locations)
        }
