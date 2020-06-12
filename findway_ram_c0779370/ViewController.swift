@@ -17,7 +17,9 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
     var annotation = MKPointAnnotation()
    let destinationRequest = MKDirections.Request()
     
-    @IBOutlet weak var longpress: UILongPressGestureRecognizer!
+    @IBOutlet weak var doubleTap: UITapGestureRecognizer!
+
+    @IBOutlet weak var pinch: UIPinchGestureRecognizer!
     @IBOutlet weak var findway: UIButton!
     @IBOutlet var mapView: MKMapView!
     
@@ -34,20 +36,28 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
       }
     
     
-    @IBAction func longpressaction(_ sender: UIGestureRecognizer) {
-   let touchPoint = sender.location(in: mapView)
-           let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
-//        let annotation = MKPointAnnotation()
+    @IBAction func pincAction(_ sender: UIPinchGestureRecognizer) {
+        print("pinched")
+        mapView.isZoomEnabled = true
         
-           annotation.coordinate = newCoordinates
-        annotation.title = "Destination"
-        annotation.subtitle = "Press Find Button to get Directions"
-           mapView.addAnnotation(annotation)
-        mapView.removeAnnotations(mapView.annotations.filter { $0 !== mapView.userLocation })
-     
-        self.mapView.addAnnotation(annotation)
-        print(newCoordinates)
+}
+    @IBAction func doubleTapAction(_ sender: UITapGestureRecognizer) {
+          print("doublepress tap")
+               mapView.isZoomEnabled = false
+        let touchPoint = sender.location(in: mapView)
+                   let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        //        let annotation = MKPointAnnotation()
+                
+                   annotation.coordinate = newCoordinates
+                annotation.title = "Destination"
+                annotation.subtitle = "Press Find Button to get Directions"
+                   mapView.addAnnotation(annotation)
+                mapView.removeAnnotations(mapView.annotations.filter { $0 !== mapView.userLocation })
+             
+                self.mapView.addAnnotation(annotation)
+                print(newCoordinates,"Double Tap")
     }
+ 
     
     
  //Button for walking.
@@ -62,7 +72,7 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
         print(annotation.coordinate,"Button")
                mapThis(destinationCord: annotation.coordinate)
       
-//        mapView.removeOverlays(mapView.overlays)
+        mapView.removeOverlays(mapView.overlays)
 // destinationRequest.transportType = .automobile
                }
         
@@ -120,9 +130,11 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
     
    
     //Functions to update Locatons
-    private func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
        {
-        let location = locations.last!
+        mapView.isZoomEnabled = false
+        let location = locationManager.location!
+        
                 let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         var region = MKCoordinateRegion(center: center, span: MKCoordinateSpan( latitudeDelta: 0.1, longitudeDelta: 0.1))
                 region.center = mapView.userLocation.coordinate
