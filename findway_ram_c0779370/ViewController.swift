@@ -60,9 +60,11 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
  
     
     
- //Button for walking.
+ //Button for  User's Current Locaton.
     @IBAction func transportBtnAction(_ sender: UIButton) {
-        print("walking")
+        print("your-loacation",locationManager.location!)
+
+        yourLocation(_Location: locationManager.location!)
 
     }
     
@@ -129,19 +131,7 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
     
     
    
-    //Functions to update Locatons
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
-       {
-        mapView.isZoomEnabled = false
-        let location = locationManager.location!
-        
-                let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        var region = MKCoordinateRegion(center: center, span: MKCoordinateSpan( latitudeDelta: 0.1, longitudeDelta: 0.1))
-                region.center = mapView.userLocation.coordinate
-                mapView.setRegion(region, animated: true)
 
-         print(locations)
-       }
     
     
 
@@ -156,9 +146,23 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+       
         mapView.delegate = self
         }
+    
+    
+    
+    
+    
+    
+    func yourLocation(_Location: CLLocation){
+        let location = locationManager.location!
+             
+                     let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+             var region = MKCoordinateRegion(center: center, span: MKCoordinateSpan( latitudeDelta: 0.1, longitudeDelta: 0.1))
+                     region.center = mapView.userLocation.coordinate
+                     mapView.setRegion(region, animated: true)
+    }
 
 }
 
