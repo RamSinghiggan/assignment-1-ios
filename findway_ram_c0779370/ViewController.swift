@@ -21,7 +21,7 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
     @IBOutlet weak var zoomin: UIButton!
     @IBOutlet weak var doubleTap: UITapGestureRecognizer!
 
-    @IBOutlet weak var pinch: UIPinchGestureRecognizer!
+
     @IBOutlet weak var findway: UIButton!
     @IBOutlet var mapView: MKMapView!
     
@@ -35,28 +35,28 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
     }
     override func viewDidAppear(_ animated: Bool) {
            determineCurrentLocation()
+        
+        yourLocation(_Location: locationManager.location!)
       }
     
     
-    @IBAction func pincAction(_ sender: UIPinchGestureRecognizer) {
-        print("pinched")
 
-        
-        
-}
     
-    
+    //zoom Out Button
     @IBAction func zoomoutAction(_ sender: UIButton) {
-        let newRegion=MKCoordinateRegion(center: mapView.region.center,span: MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta/0.5, longitudeDelta: mapView.region.span.longitudeDelta/0.5));
-        mapView.setRegion(newRegion,animated: true)
+   
+     zoomOutfunc()
     }
     
+    //Zoom In Button
     @IBAction func zoominAction(_ sender: UIButton) {
-        let newRegion=MKCoordinateRegion(center: mapView.region.center,span: MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta*0.5, longitudeDelta: mapView.region.span.longitudeDelta*0.5));
-       mapView.setRegion(newRegion, animated: true)
+       zoomInfunc()
+        
     }
     
     
+    
+ 
     
     
     @IBAction func doubleTapAction(_ sender: UITapGestureRecognizer) {
@@ -157,6 +157,7 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
+        
        
         mapView.delegate = self
         }
@@ -168,13 +169,40 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
    //user location fn
     func yourLocation(_Location: CLLocation){
         let location = locationManager.location!
-             
                      let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-             var region = MKCoordinateRegion(center: center, span: MKCoordinateSpan( latitudeDelta: 0.1, longitudeDelta: 0.1))
+        var region = MKCoordinateRegion(center: center, span: MKCoordinateSpan( latitudeDelta: 0.01, longitudeDelta: 0.01))
                      region.center = mapView.userLocation.coordinate
                      mapView.setRegion(region, animated: true)
     }
     
+    
+    //Zoom Out Function
+     func zoomOutfunc(){
+      
+      
+//
+//        let maxRegion=MKCoordinateRegion(center:mapView.region.center ,span:  MKCoordinateSpan(latitudeDelta: +214.98590353, longitudeDelta: +162.98586887));
+        
+        
+        
+         let newRegion=MKCoordinateRegion(center: mapView.region.center,span: MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta/0.5, longitudeDelta: mapView.region.span.longitudeDelta/0.5));
+            mapView.setRegion(newRegion,animated: true)
+         
+     }
+     
+     
+     
+     //Zoom in Function
+     func zoomInfunc(){
+         let newRegion=MKCoordinateRegion(center: mapView.region.center,span: MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta*0.5, longitudeDelta: mapView.region.span.longitudeDelta*0.5));
+               mapView.setRegion(newRegion, animated: true)
+         
+     }
+    
+    
+    
+    
+  
 
 }
 
