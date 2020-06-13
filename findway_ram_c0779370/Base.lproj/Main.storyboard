@@ -16,24 +16,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" showsUserLocation="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I0i-Aq-c3f">
-                                <rect key="frame" x="0.0" y="20" width="414" height="804"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="768"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="8bC-Xf-vdC" id="oFh-Ur-dGq"/>
                                     <outletCollection property="gestureRecognizers" destination="b1O-UA-yZK" appends="YES" id="1Eh-uQ-vT0"/>
-                                    <outletCollection property="gestureRecognizers" destination="cr1-Hk-QC3" appends="YES" id="9fN-sJ-95A"/>
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLK-Z9-Lmm">
-                                <rect key="frame" x="158" y="832" width="98" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="40" y="758" width="63" height="30"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <size key="titleShadowOffset" width="2" height="3"/>
+                                <state key="normal" title="Find Way"/>
                                 <connections>
                                     <action selector="findwayaction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pbe-ZA-kek"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pd3-T6-WVl">
+                                <rect key="frame" x="309" y="207" width="85" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="HIX-qh-E3W"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="plus.magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="zoominAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DCN-gE-fJC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tD-kK-RuZ">
+                                <rect key="frame" x="309" y="305" width="85" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="OHH-r8-gLH"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="minus.magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="zoomoutAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8OW-Rl-Mfk"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7v-lL-r5k">
-                                <rect key="frame" x="331" y="832" width="52" height="30"/>
-                                <state key="normal" title="walking"/>
+                                <rect key="frame" x="307" y="758" width="55" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <size key="titleShadowOffset" width="3" height="2"/>
+                                <state key="normal" title="your loc"/>
                                 <connections>
                                     <action selector="transportBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Gd-y4-261"/>
                                 </connections>
@@ -42,15 +67,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="iLK-Z9-Lmm" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="GZP-66-pip"/>
-                            <constraint firstAttribute="trailing" secondItem="I0i-Aq-c3f" secondAttribute="trailing" id="SnA-Iv-3nS"/>
-                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-24" id="bfb-ra-c2r"/>
-                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iQB-9A-Uh7"/>
-                            <constraint firstItem="z7v-lL-r5k" firstAttribute="baseline" secondItem="iLK-Z9-Lmm" secondAttribute="baseline" id="nxs-1u-yGG"/>
-                            <constraint firstItem="z7v-lL-r5k" firstAttribute="leading" secondItem="iLK-Z9-Lmm" secondAttribute="trailing" constant="75" id="qAp-vo-DlG"/>
-                            <constraint firstItem="iLK-Z9-Lmm" firstAttribute="top" secondItem="I0i-Aq-c3f" secondAttribute="bottom" constant="8" symbolic="YES" id="uad-UO-Ery"/>
-                            <constraint firstItem="iLK-Z9-Lmm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="158" id="upY-7e-Css"/>
-                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="centerX" secondItem="iLK-Z9-Lmm" secondAttribute="centerX" id="wWH-zA-ann"/>
+                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="00j-eF-xLa"/>
+                            <constraint firstItem="pd3-T6-WVl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="309" id="4rN-qU-Q8I"/>
+                            <constraint firstItem="iLK-Z9-Lmm" firstAttribute="baseline" secondItem="z7v-lL-r5k" secondAttribute="baseline" id="6Pr-0e-1IX"/>
+                            <constraint firstItem="pd3-T6-WVl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="162" id="9J0-Wa-d3b"/>
+                            <constraint firstItem="pd3-T6-WVl" firstAttribute="trailing" secondItem="5tD-kK-RuZ" secondAttribute="trailing" id="GoL-R9-Fi3"/>
+                            <constraint firstItem="iLK-Z9-Lmm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="ROq-32-gUR"/>
+                            <constraint firstItem="pd3-T6-WVl" firstAttribute="leading" secondItem="5tD-kK-RuZ" secondAttribute="leading" id="ZQZ-YF-mdL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pd3-T6-WVl" secondAttribute="trailing" constant="20" id="aJE-NQ-Ds3"/>
+                            <constraint firstItem="5tD-kK-RuZ" firstAttribute="leading" secondItem="z7v-lL-r5k" secondAttribute="leading" constant="2" id="l2W-Do-2R4"/>
+                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-24" id="lHQ-vL-cWE"/>
+                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sbt-CV-OeH"/>
+                            <constraint firstItem="iLK-Z9-Lmm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="714" id="tp4-ZB-8x7"/>
+                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="bottom" secondItem="iLK-Z9-Lmm" secondAttribute="bottom" id="wdO-dk-CfM"/>
+                            <constraint firstItem="5tD-kK-RuZ" firstAttribute="top" secondItem="pd3-T6-WVl" secondAttribute="bottom" constant="43" id="z7P-ph-hMD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -58,8 +88,9 @@
                         <outlet property="doubleTap" destination="b1O-UA-yZK" id="FO3-sJ-ooh"/>
                         <outlet property="findway" destination="iLK-Z9-Lmm" id="N9F-1B-04a"/>
                         <outlet property="mapView" destination="I0i-Aq-c3f" id="T1Y-N7-PF4"/>
-                        <outlet property="pinch" destination="cr1-Hk-QC3" id="0LW-AB-21O"/>
                         <outlet property="transportBtn" destination="z7v-lL-r5k" id="jad-p0-9Ta"/>
+                        <outlet property="zoomin" destination="pd3-T6-WVl" id="fUr-Z4-qpG"/>
+                        <outlet property="zoomout" destination="5tD-kK-RuZ" id="cL0-ya-cAr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -69,14 +100,12 @@
                         <outlet property="delegate" destination="I0i-Aq-c3f" id="7JK-RX-Y6w"/>
                     </connections>
                 </tapGestureRecognizer>
-                <pinchGestureRecognizer id="cr1-Hk-QC3">
-                    <connections>
-                        <action selector="pincAction:" destination="BYZ-38-t0r" id="YXS-Nq-Ym0"/>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="kh9-Io-9Lj"/>
-                    </connections>
-                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="122.54464285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="minus.magnifyingglass" catalog="system" width="64" height="56"/>
+        <image name="plus.magnifyingglass" catalog="system" width="64" height="56"/>
+    </resources>
 </document>

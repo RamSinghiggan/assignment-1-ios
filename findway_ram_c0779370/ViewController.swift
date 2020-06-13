@@ -17,6 +17,8 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
     var annotation = MKPointAnnotation()
    let destinationRequest = MKDirections.Request()
     
+    @IBOutlet weak var zoomout: UIButton!
+    @IBOutlet weak var zoomin: UIButton!
     @IBOutlet weak var doubleTap: UITapGestureRecognizer!
 
     @IBOutlet weak var pinch: UIPinchGestureRecognizer!
@@ -38,12 +40,28 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
     
     @IBAction func pincAction(_ sender: UIPinchGestureRecognizer) {
         print("pinched")
-        mapView.isZoomEnabled = true
+
+        
         
 }
+    
+    
+    @IBAction func zoomoutAction(_ sender: UIButton) {
+        let newRegion=MKCoordinateRegion(center: mapView.region.center,span: MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta/0.5, longitudeDelta: mapView.region.span.longitudeDelta/0.5));
+        mapView.setRegion(newRegion,animated: true)
+    }
+    
+    @IBAction func zoominAction(_ sender: UIButton) {
+        let newRegion=MKCoordinateRegion(center: mapView.region.center,span: MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta*0.5, longitudeDelta: mapView.region.span.longitudeDelta*0.5));
+       mapView.setRegion(newRegion, animated: true)
+    }
+    
+    
+    
+    
     @IBAction func doubleTapAction(_ sender: UITapGestureRecognizer) {
           print("doublepress tap")
-               mapView.isZoomEnabled = false
+
         let touchPoint = sender.location(in: mapView)
                    let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         //        let annotation = MKPointAnnotation()
@@ -126,20 +144,13 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
           return render
       }
     
- 
-    
-    
-    
-   
-
-    
-    
-
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
             print("Error - locationManager: \(error.localizedDescription)")
         }
+    
+    
    
-//function to get User Loacation
+//function to get current Loacation
     func determineCurrentLocation() {
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -154,7 +165,7 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
     
     
     
-    
+   //user location fn
     func yourLocation(_Location: CLLocation){
         let location = locationManager.location!
              
@@ -163,6 +174,7 @@ class ViewController: UIViewController ,MKMapViewDelegate,CLLocationManagerDeleg
                      region.center = mapView.userLocation.coordinate
                      mapView.setRegion(region, animated: true)
     }
+    
 
 }
 
