@@ -13,6 +13,8 @@
 		18D89950248F0902003004FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D8994E248F0902003004FD /* Main.storyboard */; };
 		18D89952248F0905003004FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D89951248F0905003004FD /* Assets.xcassets */; };
 		18D89955248F0905003004FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D89953248F0905003004FD /* LaunchScreen.storyboard */; };
+		18D8995D24955B41003004FD /* favplaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8995C24955B40003004FD /* favplaces.swift */; };
+		18D8995F24955BC9003004FD /* Places.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18D8995E24955BC9003004FD /* Places.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		18D89951248F0905003004FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18D89954248F0905003004FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18D89956248F0905003004FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18D8995C24955B40003004FD /* favplaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favplaces.swift; sourceTree = "<group>"; };
+		18D8995E24955BC9003004FD /* Places.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Places.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				18D8994A248F0902003004FD /* SceneDelegate.swift */,
 				18D8994C248F0902003004FD /* ViewController.swift */,
 				18D8994E248F0902003004FD /* Main.storyboard */,
+				18D8995E24955BC9003004FD /* Places.plist */,
+				18D8995C24955B40003004FD /* favplaces.swift */,
 				18D89951248F0905003004FD /* Assets.xcassets */,
 				18D89953248F0905003004FD /* LaunchScreen.storyboard */,
 				18D89956248F0905003004FD /* Info.plist */,
@@ -127,6 +133,7 @@
 			files = (
 				18D89955248F0905003004FD /* LaunchScreen.storyboard in Resources */,
 				18D89952248F0905003004FD /* Assets.xcassets in Resources */,
+				18D8995F24955BC9003004FD /* Places.plist in Resources */,
 				18D89950248F0902003004FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +148,7 @@
 				18D8994D248F0902003004FD /* ViewController.swift in Sources */,
 				18D89949248F0902003004FD /* AppDelegate.swift in Sources */,
 				18D8994B248F0902003004FD /* SceneDelegate.swift in Sources */,
+				18D8995D24955B41003004FD /* favplaces.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

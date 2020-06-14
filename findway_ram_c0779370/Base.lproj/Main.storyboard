@@ -16,27 +16,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" showsUserLocation="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I0i-Aq-c3f">
-                                <rect key="frame" x="0.0" y="20" width="414" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="8bC-Xf-vdC" id="oFh-Ur-dGq"/>
                                     <outletCollection property="gestureRecognizers" destination="b1O-UA-yZK" appends="YES" id="1Eh-uQ-vT0"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLK-Z9-Lmm">
-                                <rect key="frame" x="40" y="758" width="63" height="30"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <size key="titleShadowOffset" width="2" height="3"/>
-                                <state key="normal" title="Find Way"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7v-lL-r5k">
+                                <rect key="frame" x="20" y="760" width="112" height="79"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="79" id="dnW-6b-UoI"/>
+                                </constraints>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <size key="titleShadowOffset" width="3" height="2"/>
+                                <state key="normal" backgroundImage="home"/>
                                 <connections>
-                                    <action selector="findwayaction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pbe-ZA-kek"/>
+                                    <action selector="transportBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Gd-y4-261"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pd3-T6-WVl">
-                                <rect key="frame" x="309" y="207" width="85" height="53"/>
+                                <rect key="frame" x="295" y="207" width="99" height="53"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="HIX-qh-E3W"/>
+                                    <constraint firstAttribute="height" constant="55" id="SF4-te-fuy"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="plus.magnifyingglass" catalog="system"/>
                                 <connections>
@@ -44,51 +46,76 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tD-kK-RuZ">
-                                <rect key="frame" x="309" y="305" width="85" height="53"/>
+                                <rect key="frame" x="295" y="305" width="99" height="53"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="OHH-r8-gLH"/>
+                                    <constraint firstAttribute="height" constant="55" id="cjU-jQ-9uc"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="minus.magnifyingglass" catalog="system"/>
                                 <connections>
                                     <action selector="zoomoutAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8OW-Rl-Mfk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7v-lL-r5k">
-                                <rect key="frame" x="307" y="758" width="55" height="30"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <size key="titleShadowOffset" width="3" height="2"/>
-                                <state key="normal" title="your loc"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLK-Z9-Lmm">
+                                <rect key="frame" x="243" y="760" width="151" height="94"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <size key="titleShadowOffset" width="2" height="3"/>
+                                <state key="normal" backgroundImage="nav"/>
                                 <connections>
-                                    <action selector="transportBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Gd-y4-261"/>
+                                    <action selector="findwayaction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pbe-ZA-kek"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbt-dC-frI">
+                                <rect key="frame" x="262" y="680" width="119" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="eAh-dj-62Q"/>
+                                </constraints>
+                                <state key="normal" image="walk-1"/>
+                                <connections>
+                                    <action selector="walkingActionbtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gdc-KC-vQs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBx-aw-cnj">
+                                <rect key="frame" x="17" y="35" width="107" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="info" image="exclamationmark.bubble.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="infoAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B3Z-9d-Ri4"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="00j-eF-xLa"/>
-                            <constraint firstItem="pd3-T6-WVl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="309" id="4rN-qU-Q8I"/>
-                            <constraint firstItem="iLK-Z9-Lmm" firstAttribute="baseline" secondItem="z7v-lL-r5k" secondAttribute="baseline" id="6Pr-0e-1IX"/>
-                            <constraint firstItem="pd3-T6-WVl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="162" id="9J0-Wa-d3b"/>
-                            <constraint firstItem="pd3-T6-WVl" firstAttribute="trailing" secondItem="5tD-kK-RuZ" secondAttribute="trailing" id="GoL-R9-Fi3"/>
-                            <constraint firstItem="iLK-Z9-Lmm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="ROq-32-gUR"/>
-                            <constraint firstItem="pd3-T6-WVl" firstAttribute="leading" secondItem="5tD-kK-RuZ" secondAttribute="leading" id="ZQZ-YF-mdL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pd3-T6-WVl" secondAttribute="trailing" constant="20" id="aJE-NQ-Ds3"/>
-                            <constraint firstItem="5tD-kK-RuZ" firstAttribute="leading" secondItem="z7v-lL-r5k" secondAttribute="leading" constant="2" id="l2W-Do-2R4"/>
-                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-24" id="lHQ-vL-cWE"/>
-                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sbt-CV-OeH"/>
-                            <constraint firstItem="iLK-Z9-Lmm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="714" id="tp4-ZB-8x7"/>
-                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="bottom" secondItem="iLK-Z9-Lmm" secondAttribute="bottom" id="wdO-dk-CfM"/>
-                            <constraint firstItem="5tD-kK-RuZ" firstAttribute="top" secondItem="pd3-T6-WVl" secondAttribute="bottom" constant="43" id="z7P-ph-hMD"/>
+                            <constraint firstItem="5tD-kK-RuZ" firstAttribute="top" secondItem="pd3-T6-WVl" secondAttribute="bottom" constant="43" id="44u-vd-o1c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="z7v-lL-r5k" secondAttribute="bottom" constant="23" id="5MX-2R-gSC"/>
+                            <constraint firstItem="Dbt-dC-frI" firstAttribute="leading" secondItem="5tD-kK-RuZ" secondAttribute="leading" constant="-33" id="65b-ic-2Io"/>
+                            <constraint firstItem="pd3-T6-WVl" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="6F1-Cv-caX"/>
+                            <constraint firstItem="iLK-Z9-Lmm" firstAttribute="top" secondItem="z7v-lL-r5k" secondAttribute="bottom" constant="-79" id="8on-Ke-1pv"/>
+                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EMN-Th-w5s"/>
+                            <constraint firstItem="pd3-T6-WVl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="162" id="Fhz-Ru-8Ys"/>
+                            <constraint firstItem="z7v-lL-r5k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="HZI-wS-DbE"/>
+                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-44" id="R3e-t2-B23"/>
+                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="RXA-ii-9Ky"/>
+                            <constraint firstItem="pd3-T6-WVl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="295" id="UO0-eg-3WN"/>
+                            <constraint firstItem="I0i-Aq-c3f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VyD-8Z-Go0"/>
+                            <constraint firstItem="iLK-Z9-Lmm" firstAttribute="top" secondItem="Dbt-dC-frI" secondAttribute="bottom" constant="8" id="XZw-Hz-mAR"/>
+                            <constraint firstItem="pd3-T6-WVl" firstAttribute="trailing" secondItem="5tD-kK-RuZ" secondAttribute="trailing" id="dTO-ZO-kh9"/>
+                            <constraint firstItem="5tD-kK-RuZ" firstAttribute="trailing" secondItem="z7v-lL-r5k" secondAttribute="trailing" constant="262" id="jx5-sY-tdi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iLK-Z9-Lmm" secondAttribute="bottom" constant="8" id="kne-bp-sJI"/>
+                            <constraint firstItem="pd3-T6-WVl" firstAttribute="leading" secondItem="5tD-kK-RuZ" secondAttribute="leading" id="l15-Le-hO4"/>
+                            <constraint firstItem="iLK-Z9-Lmm" firstAttribute="trailing" secondItem="z7v-lL-r5k" secondAttribute="trailing" constant="262" id="nIu-n2-GPW"/>
+                            <constraint firstItem="iLK-Z9-Lmm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="243" id="oTK-mY-IGp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dbt-dC-frI" secondAttribute="trailing" constant="33" id="xit-qv-bhy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="doubleTap" destination="b1O-UA-yZK" id="FO3-sJ-ooh"/>
                         <outlet property="findway" destination="iLK-Z9-Lmm" id="N9F-1B-04a"/>
+                        <outlet property="infoBtn" destination="dBx-aw-cnj" id="gS0-eW-lpt"/>
                         <outlet property="mapView" destination="I0i-Aq-c3f" id="T1Y-N7-PF4"/>
                         <outlet property="transportBtn" destination="z7v-lL-r5k" id="jad-p0-9Ta"/>
+                        <outlet property="walkingbtn" destination="Dbt-dC-frI" id="v5F-zZ-AxV"/>
                         <outlet property="zoomin" destination="pd3-T6-WVl" id="fUr-Z4-qpG"/>
                         <outlet property="zoomout" destination="5tD-kK-RuZ" id="cL0-ya-cAr"/>
                     </connections>
@@ -105,7 +132,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="exclamationmark.bubble.fill" catalog="system" width="64" height="54"/>
+        <image name="home" width="256" height="256"/>
         <image name="minus.magnifyingglass" catalog="system" width="64" height="56"/>
+        <image name="nav" width="246" height="208.5"/>
         <image name="plus.magnifyingglass" catalog="system" width="64" height="56"/>
+        <image name="walk-1" width="117.5" height="117.5"/>
     </resources>
 </document>
